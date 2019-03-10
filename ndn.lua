@@ -348,7 +348,11 @@ function addSummary(block)
       if (subblock.value ~= nil) then
         local info = NDN_DICT[subblock.type]
          if (info ~= nil) then
-            table.insert(summary, info.name .. ": " .. subblock.value)
+            if (block.type == 5 and subblock.type == 30) then
+                table.insert(summary, "ForwardingHint" .. ": " .. "Yes")
+            else
+                table.insert(summary, info.name .. ": " .. subblock.value)
+            end
          end
       end
    end
