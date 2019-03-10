@@ -459,8 +459,6 @@ end
 
 -- NDN protocol dissector function
 function ndn.dissector(tvb, pInfo, root) -- Tvb, Pinfo, TreeItem
-   print ("Let's start")
-
    if (tvb:len() ~= tvb:reported_len()) then
       return 0 -- ignore partially captured packets
       -- this can/may be re-enabled only for unfragmented UDP packets
